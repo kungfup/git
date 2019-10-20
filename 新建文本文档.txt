@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+int add(int a,int b)
+{
+    int sum,pdd;
+    if(b==0)return a;
+    sum=a^b;
+    pdd=(a&b)<<1;
+    return add(sum,pdd);
+
+
+}
+int main()
+{
+   int a,b,c;
+   scanf("%d %d",&a,&b);
+   c=add(a,b);
+   printf("%d",c);
+   return 0;
+
+} 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+  double a,b,c,t;
+while(scanf("%lf %lf %lf",&a,&b,&c)){
+    if (a<0||b<0||c<0){printf("NO");break;}
+    if(a>b)
+    {
+        t=a;
+        a=b;
+        b=t;
+    }
+    if(a>c){
+    t=a;a=c;c=t;
+    }
+    if(b>c){t=b;b=c;c=t;}
+    if(a+b<c||b+c<a||a+c<b||a==0||b==0||c==0)
+    printf("NO");
+
+  else if(a*a+b*b==c*c)
+    printf("直角三角形\n");
+  else if(a==b&&b==c&&c==a)
+    printf("等边三角形\n");
+    else if (a==b||b==c||a==c)
+        printf("等腰三角形\n");
+    else  printf("一般三角形\n");
+
+  return 0;
+  }
+} 
+ 水仙花数
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int x=100,i,sum,c,m,t,a,b;
+for(;x<=1000000;x++)
+  {
+      sum =0;c=1;a=1;b=1;m=1;
+      t=x;
+      while(t>9)
+      {
+          t/=10;
+          m*=10;
+          c++;
+      }
+      t=x;
+      while(m>=1)
+      {
+          i=t/m;
+          for(a=1;a<=c;a++)
+          {
+
+              b=b*i;
+          }
+          sum=sum+b;b=1;
+          t=t%m;
+          m=m/10;
+      }
+      if(x==sum)
+        {printf("%d ",x);}
+  }
+  return 0;
+}
+
